@@ -1,0 +1,43 @@
+{% extends "CoreBundle::layout.html.twig" %}
+{% block title %}
+	Contact - {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="container">
+	<h1><i class="fa fa-map-o"></i>&nbsp;Nous contacter</h1>
+		<hr />
+		<div class="clearfix">
+				<div class="google-map wow fadeIn" data-marker="true" data-marker-icon="{{ asset('img/map-marker.png') }}" data-center-lat="47.7385008" data-center-lng="7.315356000000065" data-zoom="16"></div>
+				<div class="address">
+						<h2>Notre agence :</h2>
+						<p><strong>FMS Communication</strong><br />
+							 6, rue Jean Racine<br />
+							 68200 MULHOUSE<br />
+							 Tel: +33 (0)6 03 88 53 56<br />
+							 Mail: contact[at]fmscommunication.fr<br />
+						</p>
+				</div>
+		</div>
+		<div class="clearfix wow bounceIn">
+				<h2>Envoyer nous un message :</h2>
+				{{ form_start(form, {'attr': {'class': 'contactform'}}) }}
+				{{ form_errors(form) }}
+
+						{{ form_errors(form.name) }}
+						{{ form_widget(form.name) }}
+
+						{{ form_errors(form.surname) }}
+						{{ form_widget(form.surname) }}
+
+						{{ form_errors(form.email) }}
+						{{ form_widget(form.email) }}
+
+						{{ form_errors(form.message) }}
+						{{ form_widget(form.message) }}
+
+				{{ form_widget(form.save, {'label': 'Envoyer', 'attr': {'class': 'btn'}}) }}
+				{{ form_rest(form) }}
+				{{ form_end(form) }}
+		</div>
+</div>
+{% endblock %}

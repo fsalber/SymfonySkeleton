@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:language" content="fr" />
+    <meta property="og:description" content="" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset("css/global.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("css/responsive.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("css/animate.css") }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+        <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset("img/favicons/apple-touch-icon.png") }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("img/favicons/favicon-32x32.png") }}">
+    <link rel="icon" type="image/png" sizes="16x16"href="{{ asset("img/favicons/favicon-16x16.png") }}">
+    <link rel="manifest" href="{{ asset("img/favicons/manifest.json") }}">
+    <link rel="mask-icon"color="#00ccff"href="{{ asset("img/favicons/safari-pinned-tab.svg") }}">
+    <link rel="shortcut icon" href="{{ asset("img/favicons/favicon.ico") }}">
+    <meta name="msapplication-config" content="{{ asset("img/favicons/browserconfig.xml") }}">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="" />
+</head>
+<body>
+<header class="main page">
+    <div class="container clearfix">
+        <div class="left">
+            <a href="{{ path('core_homepage') }}">
+                <img src="{{ asset("img/logo.png") }}" alt="FMS Communication - Votre spécialiste du développement de site internet" />
+            </a>
+        </div>
+        <div class="right">
+            <nav class="main" id="nav">
+                <ul class="clearfix">
+                    <li>
+                        <a href="{{ path('core_homepage') }}">Accueil</a>
+                    </li>
+                    <li {% if app.request.attributes.get('_route') == 'core_contact' %}class="active"{% endif %}>
+                        <a href="{{ path('core_contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main class="content page">
+    <div class="container">
+        {% for key, messages in app.session.flashbag.all() %}
+          {% for message in messages %}
+              <div class="container">
+                  <div class="alert alert-{{ key }}" role="alert">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                  </div>
+                 </div>
+              {% endfor %}
+          {% endfor %}
+    </div>
+    {% block body %}
+    {% endblock %}
+</main>
+<footer class="main">
+    <div class="container clearfix">
+        <div class="left">
+            <img src="{{ asset("img/logo.png") }}" alt="" />
+        </div>
+        <div class="right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{{ asset("js/minify.js") }}"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="FMS Communication, création de site internet et d'identité visuelle à Mulhouse (68). Votre site internet à partir de 1000€ TTC, devis gratuit !">
+    <meta name="keywords" content="Boutique en ligne, site en ligne, site vitrine, E-Commerce, Apps, Boutique, site web, développement web, mulhouse, cernay, illzach, thann, saint-amarin, moosch, Alsace">
+    
+    <meta property="og:site_name" content="FMS Communication - Création de site internet à Mulhouse" />
+    <meta property="og:title" content="FMS Communication" />
+    <meta property="og:url" content="http://fmscommunication.fr/" />
+    <meta property="og:language" content="fr" />
+    <meta property="og:description" content="FMS Communication, création de site internet et d'identité visuelle à Mulhouse (68). Votre site internet à partir de 1000€ TTC, devis gratuit !" />
+    
+    <title>{% block title %}FMS Communication - Votre spécialiste du développement de site internet{% endblock %}</title>
+
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset("css/minify.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("css/animate.css") }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+        <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset("img/favicons/apple-touch-icon.png") }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("img/favicons/favicon-32x32.png") }}">
+    <link rel="icon" type="image/png" sizes="16x16"href="{{ asset("img/favicons/favicon-16x16.png") }}">
+    <link rel="manifest" href="{{ asset("img/favicons/manifest.json") }}">
+    <link rel="mask-icon"color="#00ccff"href="{{ asset("img/favicons/safari-pinned-tab.svg") }}">
+    <link rel="shortcut icon" href="{{ asset("img/favicons/favicon.ico") }}">
+    <meta name="msapplication-config" content="{{ asset("img/favicons/browserconfig.xml") }}">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<header class="main wow fadeIn">
+    <div class="container clearfix">
+        <div class="left">
+            <a href="{{ path('core_homepage') }}">
+                <img src="{{ asset("img/logo.png") }}" alt="FMS Communication - Votre spécialiste du développement de site internet" />
+            </a>
+        </div>
+        <div class="right">
+            <nav class="main" id="nav">
+                <ul class="clearfix">
+                    <li>
+                        <a href="{{ path('core_homepage') }}">Accueil</a>
+                    </li>
+                    <li class="{% if app.request.attributes.get('_route') == 'core_prestations' %}active {% endif %}">
+                        <a href="{{ path('core_prestations') }}">Nos prestations</a>
+                    </li>
+                    <li class="{% if app.request.attributes.get('_route') == 'core_realisation' %}active {% endif %}{% if app.request.attributes.get('_route') == 'core_realisation_view' %}active {% endif %}">
+                        <a href="{{ path('core_realisation') }}">Réalisations</a>
+                    </li>
+                    <li class="{% if app.request.attributes.get('_route') == 'core_contact' %}active {% endif %}">
+                        <a href="{{ path('core_contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <a class="nav_open"><span></span></a>
+        </div>
+    </div>
+</header>
+<main class="content page">
+    <div class="slider" style="background-image: url('{{ asset("img/slider/slide1.jpg") }}'); ">
+    </div>
+    
+    <div class="container">
+        <h1>Oups, page introuvable</h1>
+        <hr />
+        <p>Une erreur est survenue, si cette erreur persiste, envoyer le message ci-dessous par mail à l'adresse <a href="mailto:contact@fmscommunication.fr">contact@fmscommunication.fr</a></p>
+        <p><code>Error : {{ status_code }} - {{ status_text }}</code></p>
+    </div>
+</main>
+<footer class="main">
+    <div class="container clearfix">
+        <div class="left">
+            <img src="{{ asset("img/logo.png") }}" alt="FMS Communication - Votre spécialiste du développement de site internet" />
+        </div>
+        <div class="right">
+            <p><a href="{{ path('core_mentions') }}">Mentions légale</a><br />
+               ©2016 - FMS Communication<br />
+               Tous Droits Réservés, développer par FMS Communication.</p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{{ asset("js/minify.js") }}"></script>
+</body>
+</html>

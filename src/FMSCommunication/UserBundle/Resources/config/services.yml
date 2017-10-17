@@ -1,0 +1,15 @@
+services:
+#    pc_user.example:
+#        class: FMSCommunication\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    fmscom_user.registration.form.type:
+        class: FMSCommunication\UserBundle\Form\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fmscom_user_registration }
+    fmscom_user.profile.form.type:
+        class: FMSCommunication\UserBundle\Form\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fmscom_user_profile }
